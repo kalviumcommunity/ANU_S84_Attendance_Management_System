@@ -7,7 +7,7 @@ public class Student {
     String name;
 
     public Student(String name) {
-        this.studentId = nextStudentIdCounter++;
+        this.studentId = nextStudentIdCounter++ ;
         this.name = name;
     }
 
