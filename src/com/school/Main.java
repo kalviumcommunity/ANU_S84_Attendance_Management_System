@@ -1,34 +1,27 @@
-package com.school; 
+package com.school;
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
-        System.out.println("==== School Attendance System ====");
+        
+        Student s1 = new Student("Sir-Jadeja");
+        
+        Student s2 = new Student("Viv-Siraj-Official");
+    
+       Course c1 = new Course("OOPS");
+    
+       Course c2 = new Course("AI-M.L");
 
-        System.out.println("Creating Students and Courses using Constructors:");
-        Student student1 = new Student("Alice Wonderland");
-        Student student2 = new Student("Bob The Builder");
+       Course [] arr1 = {c1 , c2};
+       Student [] arr2 = {s1 , s2};
+       System.out.println("Registered Students: ");
+       for(Student s : arr2) s.displayDetails();
+       System.out.println("Course Details: ");
+       for(Course c : arr1) c.displayDetails();
 
-        Course course1 = new Course("Intro to Programming");
-        Course course2 = new Course("Linear Algebra");
-
-        System.out.println("\nRegistered Students:");
-        student1.displayDetails();
-        student2.displayDetails();
-
-        System.out.println("\nAvailable Courses:");
-        course1.displayDetails();
-        course2.displayDetails();
-
-        System.out.println("\n== Auto-ID Generation Test ==");
-        System.out.println("Creating one more student and course...");
-        Student student3 = new Student("Charlie Chaplin");
-        Course course3 = new Course("Data Structures");
-
-        System.out.println("\nNew Student:");
-        student3.displayDetails();
-
-        System.out.println("New Course:");
-        course3.displayDetails();
-
-        System.out.println("\nSession 3: Constructor Initialization & Auto-ID Generation Complete.");
+        ArrayList<AttendanceRecord> attendanceLog = new ArrayList<>();
+        attendanceLog.add(new AttendanceRecord(s1.getStudentId() , c1.getCourseId() , "Present"));
+        attendanceLog.add(new AttendanceRecord(s2.getStudentId() , c2.getCourseId() , "Late"));
+        attendanceLog.add(new AttendanceRecord(s1.getStudentId(), c2.getCourseId() ,   "Absent" ));
+        for(AttendanceRecord record : attendanceLog) record.displayRecord();
 }
 }
